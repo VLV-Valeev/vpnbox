@@ -54,6 +54,7 @@ class PanelManager:
                 server_ip=server_host,
             )
             state.client = client
+            await client.authenticate()
             stats = await client.get_stats()
             state.users_count = stats.get("users_active", 0)
             state.is_healthy = True
